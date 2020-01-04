@@ -13,7 +13,7 @@ import moment from 'moment'
 import 'moment/locale/en-ca'
 import todayImage from '../../assets/imgs/today.jpg'
 import commonStyles from '../commonStyles';
-import Task from '../components/task'
+import Task from '../components/Task'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import ActionButton from 'react-native-action-button'
 import AddTask from './AddTask'
@@ -64,7 +64,7 @@ export default class Agenda extends Component {
         this.setState({ tasks }, this.filterTasks)
     }
 
-    toggleTask = id => {
+    onToggleTask = id => {
         const tasks = this.state.tasks.map(task => {
             if (task.id === id) {
                 task = { ...task }
@@ -99,7 +99,7 @@ export default class Agenda extends Component {
                     <FlatList data={this.state.visibleTasks}
                         keyExtractor={item => `${item.id}`}
                         renderItem={({ item }) =>
-                            <Task {...item} toggleTask={this.toggleTask}
+                            <Task {...item} onToggleTask={this.onToggleTask}
                                 onDelete={this.deleteTask} />} />
                 </View>
                 <ActionButton buttonColor={commonStyles.colors.today}
