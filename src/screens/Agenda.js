@@ -38,7 +38,7 @@ export default class Agenda extends Component {
     }
 
     deleteTask = id => {
-        const tasks = this.state.tasks.filter(task = task.id !== id)
+        const tasks = this.state.tasks.filter(task => task.id !== id)
         this.setState({ tasks }, this.filterTasks)
     }
 
